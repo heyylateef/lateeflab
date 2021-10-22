@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<section class="page-section" id="about">
+    <div class="container pt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="mt-0">We've got what you need!</h2>
+                <hr class="divider light my-4" />
+                <p class="text-50 mb-4">Do you want to start taking payments online for your business? Do you need a reliable back-end solution for a large web project? We can help with that! Contact us today!</p>
+                <div class="col-lg-8 text-left">
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container pb-5">
+        {% if submitted %}
+        <p class="success">
+            Your request was submitted successfully.
+        </p>
+        {% else %}
+        <form action="" method="post" novalidate>
+            {{form.as_table}}
+            <div class="col pt-3">
+                <input type="submit"  class="btn btn-success" name="Submit">
+            </div>
+            {% csrf_token %}
+        </form>
+        {% endif %}
+</section>
+
+{% endblock %}

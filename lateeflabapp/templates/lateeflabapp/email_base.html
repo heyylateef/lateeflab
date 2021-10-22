@@ -1,0 +1,91 @@
+{# HTML5 declaration #}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Font Awesome (free icons) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <title>{% block title %}Lateef Lab{% endblock title %}</title>
+    </head>
+    <body>
+        <style>
+        </style>
+        <header>
+        {# Navigation Menu #}
+        </header>
+        {# The Document Body #}
+        <div class = "container mt-5">
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'success'%}
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>{{message}}</strong>
+                        </div>
+                    {% elif message.tags == 'info'%}
+                        <div class="alert alert-info alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>{{message}}</strong>
+                        </div>
+                    {% elif message.tags == 'warning'%}
+                        <div class="alert alert-warning alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>{{message}}</strong>
+                        </div>
+                    {% elif message.tags == 'error'%}
+                    <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>{{message}}</strong>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="container-fluid p-0">
+            {% block content %}
+                <!--if you see this, something is wrong!-->
+                
+            {% endblock content %}
+        </div>
+        {# The Footer #}
+        <!--<div class="footer">
+            <div class="jumbotron jumbotron-fluid text-center" style="margin-bottom:0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <p>Made by Lateef A</p>
+                        </div>
+                        <div class="col text-center">
+                            <p>Something else goes here</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="https://www.twitter.com/heyylateef"><i class='fab fa-twitter' style='font-size:24px'></i>Follow us on Twitter</a>
+                            <br>
+                            <a href="https://www.instagram.com/heyylateef"><i class='fab fa-instagram' style='font-size:24px'></i>Follow us on Instagram</a>
+                            <br>
+                            <a href="https://www.youtube.com/"><i class='fab fa-youtube' style='font-size:24px;color:red'></i>Subscribe to our YouTube Channel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    </body>
+</html>

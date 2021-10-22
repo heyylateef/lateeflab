@@ -1,0 +1,384 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  height: 80vh;
+  background: #f9f9f9;
+}
+
+#hero .container {
+  padding-top: 84px;
+}
+
+#hero h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #0f394c;
+  text-transform: uppercase;
+}
+
+#hero h2 {
+  color: #1c698c;
+  margin: 10px 0 0 0;
+  font-size: 20px;
+}
+
+#hero .btn-get-started {
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 3px;
+  transition: 0.5s;
+  margin-top: 25px;
+  color: #fff;
+  background: #49b5e7;
+  text-transform: uppercase;
+}
+
+#hero .btn-get-started:hover {
+  background: #76c7ed;
+}
+
+@media (max-width: 991px) {
+  #hero {
+    height: 100vh;
+    text-align: center;
+  }
+  #hero .hero-img img {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  #hero .hero-img img {
+    width: 80%;
+  }
+}
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about .icon-boxes h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f394c;
+  margin-bottom: 15px;
+}
+
+.about .icon-box {
+  margin-top: 40px;
+}
+
+.about .icon-box .icon {
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border: 2px solid #d0ecf9;
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+.about .icon-box .icon i {
+  color: #49b5e7;
+  font-size: 32px;
+}
+
+.about .icon-box:hover .icon {
+  background: #49b5e7;
+  border-color: #49b5e7;
+}
+
+.about .icon-box:hover .icon i {
+  color: #fff;
+}
+
+.about .icon-box .title {
+  margin-left: 85px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.about .icon-box .title a {
+  color: #343a40;
+  transition: 0.3s;
+}
+
+.about .icon-box .title a:hover {
+  color: #49b5e7;
+}
+
+.about .icon-box .description {
+  margin-left: 85px;
+  line-height: 24px;
+  font-size: 14px;
+}
+
+
+section.pricing {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+
+.pricing .card {
+  border: none;
+  border-radius: 1rem;
+  transition: all 0.2s;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.pricing hr {
+  margin: 1.5rem 0;
+}
+
+.pricing .card-title {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+}
+
+.pricing .card-price {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.pricing .card-price .period {
+  font-size: 0.8rem;
+}
+
+.pricing ul li {
+  margin-bottom: 1rem;
+}
+
+.pricing .text-muted {
+  opacity: 0.7;
+}
+
+.pricing .btn {
+  font-size: 80%;
+  border-radius: 5rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1rem;
+  opacity: 0.7;
+  transition: all 0.2s;
+}
+
+/* Hover Effects on Card */
+
+@media (min-width: 992px) {
+  .pricing .card:hover {
+    margin-top: -.25rem;
+    margin-bottom: .25rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+  }
+  .pricing .card:hover .btn {
+    opacity: 1;
+  }
+}
+
+</style>
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>We build the website so you don't have to</h1>
+          <h2>E-commerce is growing and businesses must adapt. Lateef Lab uses the latest and great technology to easily get your business online. Building a website isn't easy, so let us do it for you.</h2>
+          <div class="pt-3">
+            <a href="#about" class="btn-primary btn-lg scrollto ">Get Started</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-2 hero-img">
+          <img src="{% static 'ecommerce1.png' %}" alt="ecommerce1" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-xl-5 justify-content-center pt-5">
+            <img src="{% static 'ecommerce2.png' %}" alt="ecommerce2" class="img-fluid">
+          </div>
+
+          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+            <h3>Take advantage of our prebuilt designs</h3>
+            <p>Use our prebuilt designs to jumpstart your website. There are many working parts of any web project. At Lateef Lab, we focus on building sturdy designs and throughly test every feature. If need be, we can create different designs and add new features to meet your needs.</p>
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-fingerprint"></i></div>
+              <h4 class="title"><p>Beautiful Themes</p></h4>
+              <p class="description">We understand the importance of a website on a business' branding. So we many sturdy, good looking themes to give your business the good image it deserves.</p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-gift"></i></div>
+              <h4 class="title"><p>Accept Payment Online</p></h4>
+              <p class="description">Want to accept payment online? We'll assist you by integrating a payment processor such as Stripe or Braintree so you can begin accepting payments online.</p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-atom"></i></div>
+              <h4 class="title"><p>Focus On Your Business</p></h4>
+              <p class="description">We handle the development of your website so you can focus on the other things.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <section class="pricing py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Basic Tier -->
+                <div class="col-lg-4">
+                    <div class="card mb-5 mb-lg-0">
+                        <div class="card-body">
+                            <!--<h5 class="card-title text-muted text-uppercase text-center">Basic</h5>
+                            <h6 class="card-price text-center">$740<span class="period">one time fee</span></h6>  -->
+                            <h6 class="card-price text-center text-muted">Basic</h6>
+                            <hr>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Landing Page</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Product Catalog Page</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Contact Page</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Checkout Page</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>User logins<sub>1</sub></li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Online Payment Processor intergration (Stripe/PayPal/Braintree)</li>
+                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>1 year Domain Registration<sub>2</sub></li>
+                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Deploy Website To Internet!<sub>3</sub></li>
+                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Source Code and Copyright</li>
+                                <!--<li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Analytics</li>  -->
+                            </ul>
+                            <!--<a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- Plus Tier -->
+                <div class="col-lg-4">
+                    <div class="card mb-5 mb-lg-0">
+                        <div class="card-body">
+                            <!--<h5 class="card-title text-muted text-uppercase text-center">Plus</h5>
+                            <h6 class="card-price text-center">$800<span class="period">one time fee</span></h6> -->
+                            <h6 class="card-price text-center text-muted">Plus</h6>
+                            <hr>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Landing Page</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Product Catalog Page</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Contact Page</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Checkout Page</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>User logins<sub>1</sub></li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Online Payment Processor intergration (Stripe/PayPal/Braintree)</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>1 year Domain Registration<sub>2</sub></li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Deploy Website To Internet<sub>3</sub></li>
+                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Source Code and Copyright</li>
+                                <!--<li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Analytics</li>  -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pro Tier -->
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <!--<h5 class="card-title text-muted text-uppercase text-center">Pro</h5>
+                            <h6 class="card-price text-center">$1,600<span class="period">one time fee</span></h6>  -->
+                            <h6 class="card-price text-center text-muted">Pro</h6>
+                            <hr>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Landing Page</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Product Catalog Page</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Contact Page</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Checkout Page</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>User logins<sub>1</sub></li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Online Payment Processor intergration (Stripe/PayPal/Braintree)</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>1 year Domain Registration<sub>2</sub></li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Deploy Website To Internet<sub>3</sub></li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Source Code and Copyright</li>
+                                <!--<li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Analytics</li>  -->
+                            </ul>
+                            <!--<a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container pb-1 pt-5">
+              <div class="col">
+                  <p><sub>1 Limited to Facebook and Google social logins.</sub></p>
+              </div>
+              <div class="col">
+                  <p><sub>2  Process of transfering ownership of domain will begin within 30 days of project launch date.</sub></p>
+              </div>
+              <div class="col">
+                  <p><sub>3  Website can be hosted online starting at $25 per month. Contact us for more details</sub></p>
+              </div>
+              <div class="col">
+                  <p><sub>4 Prices listed are based on itemized features/services listed above. Additional features/services may affect total service fee. Contact us for more details.</sub></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section" id="about">
+        <div class="container pt-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mt-0">We've got what you need!</h2>
+                    <hr class="divider light my-4" />
+                    <p class="text-50 mb-4">Do you want to start taking payments online for your business? Do you need a reliable back-end solution for a large web project? We can help with that! Contact us today!</p>
+                    <div class="col-lg-8 text-left">
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container pb-5">
+          {% if submitted %}
+            <p class="success">
+              Your request was submitted successfully.
+            </p>
+          {% else %}
+            <form action="" method="post" novalidate>
+                {{form.as_table}}
+                <div class="col pt-3">
+                  <input type="submit"  class="btn btn-success" name="Submit">
+                </div>
+              {% csrf_token %}
+            </form>
+          {% endif %}
+    </section>
+
+{% endblock %}

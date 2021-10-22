@@ -1,0 +1,23 @@
+Thanks for contacting us! Please allow 48 hours for us to respond to you. Here is a review of your inquiry:
+
+Name: {{contactFirstName}} {{contactLastName}}
+
+{% if contactPhone %}
+Phone: {{contactPhone}}
+{% endif %}
+
+Email: {{contactEmail}}
+
+Reason: {{contactType}}
+
+{% if contactDate %}
+Date: {{contactDate}}
+{% endif %}
+
+{% if contactLocation %}
+Location: {{contactLocation}}
+{% endif %}
+
+{{contactMessage}}
+                                       
+© 2021 Kari's Kitchen

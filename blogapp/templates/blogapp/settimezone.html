@@ -1,0 +1,105 @@
+{# HTML5 declaration #}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Font Awesome (free icons) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <title>{% block title %}Pick Your Timezone{% endblock title %}</title>
+    </head>
+    <body>
+        <style>
+        body {
+            background: #007bff;
+            background: linear-gradient(to right, #0062E6, #33AEFF);
+        }
+        </style>
+        <header>
+        {# Navigation Menu #}
+        </header>
+        {# The Document Body #}
+        <div class = "container mt-5">
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'success'%}
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>{{message}}</strong>
+                        </div>
+                    {% elif message.tags == 'info'%}
+                        <div class="alert alert-info alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>{{message}}</strong>
+                        </div>
+                    {% elif message.tags == 'warning'%}
+                        <div class="alert alert-warning alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>{{message}}</strong>
+                        </div>
+                    {% elif message.tags == 'error'%}
+                    <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>{{message}}</strong>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="container-fluid p-0">
+            {% block content %}
+                <!--if you see this, something is wrong!-->
+                {% load tz %}
+                {% get_current_timezone as TIME_ZONE %}
+                <div class="container" style="text-align: center; padding-top: 10%;">
+                    <h1 class= "pb-5">Set Your Timezone</h1>
+                    <div class="row pt-5 pb-5 justify-content-center">
+                        <form action="{% url 'settimezone' %}" method="POST" class="form-inline">
+                            {% csrf_token %}
+                            <label for="timezone">Time zone:</label>
+                            <select name="timezone" class="form-control mr-3 ">
+                                {% for tz in timezones %}
+                                <option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ tz }}</option>
+                                {% endfor %}
+                            </select>
+                            <input type="submit" value="Set" class="form-control btn btn-success">
+                        </form>
+                    </div>
+                </div>
+            {% endblock content %}
+        </div>
+        {# The Footer #}
+        <!--<div class="footer">
+            <div class="jumbotron jumbotron-fluid text-center" style="margin-bottom:0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <p>Made by Lateef A</p>
+                        </div>
+                        <div class="col text-center">
+                            <p>Something else goes here</p>
+                        </div>
+                        <div class="col text-center">
+                    </div>
+                </div>
+            </div>
+        </div>  -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    </body>
+</html>

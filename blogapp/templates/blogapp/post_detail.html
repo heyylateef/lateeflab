@@ -1,0 +1,126 @@
+{% extends "base.html" %} 
+{% load static %}
+{% get_media_prefix as MEDIA_URL %}
+{% block content %}
+
+<style>
+
+header.masthead {
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 4.5rem);
+    {% if object.cover_image %}
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url(" {{ MEDIA_URL }}{{ object.cover_image }}");
+    {% else %}
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url(" {% static 'blog1.jpg' %}"); 
+    {% endif %}
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+header.masthead h1 {
+  font-size: 2.25rem;
+}
+@media (min-width: 992px) {
+  header.masthead {
+    height: 55vh;
+    min-height: 40rem;
+    padding-top: 4.5rem;
+    padding-bottom: 0;
+  }
+  header.masthead p {
+    font-size: 1.15rem;
+  }
+  header.masthead h1 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1200px) {
+  header.masthead h1 {
+    font-size: 3.5rem;
+  }
+}
+header.masthead .page-heading .subheading,
+header.masthead .site-heading .subheading {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.1;
+  display: block;
+  margin-top: 0.625rem;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+header.masthead .post-heading .meta,
+header.masthead .post-heading .subheading {
+  line-height: 1.1;
+  display: block;
+}
+header.masthead .post-heading .subheading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0.75rem 0 2rem;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+header.masthead .post-heading .subheading {
+    font-size: 1.875rem;
+  }
+pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+</style>
+
+<!-- Page Header-->
+<header class="masthead">
+  <div class="container h-100">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1 class="text-white font-weight-bold">{% block title %} {{ object.title }} {% endblock title %}</h1>
+                    <span class="subheading text-white">{{ object.subheading }}</span>
+                    <span class="subheading">{{ object.author }} | {{ object.created_on }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</header> 
+
+<div class="container pt-5" >
+  {% comment %} <div class="row">
+    <h1 class="font-weight-bold">{% block title %} {{ object.title }} {% endblock title %}</h1>
+  </div>
+  <div class="row justify-content-left">
+    <span class="subheading">{{ object.subheading }}</span>
+  </div>
+  <div class="row justify-content-left">
+    <span class="subheading font-italic">{{ object.author }} | {{ object.created_on }}</span>
+  </div> {% endcomment %}
+  <div class="row">
+    <div class="col card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <!--<h1> {{ object.title }} </h1>-->
+        <p >{{ object.content|safe }}</p>
+        <script src="https://utteranc.es/client.js"
+            repo="heyylateef/lateeflab"
+            issue-term={{object.title}}
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+      </div>
+    </div>
+    {% block sidebar %} {% include 'blogapp/sidebar.html' %} {% endblock sidebar %}
+  </div>
+</div>
+
+{% endblock content %}

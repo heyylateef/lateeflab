@@ -1,0 +1,90 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block content %}
+<style>
+    header.masthead {
+        padding-top: 10rem;
+        padding-bottom: calc(10rem - 4.5rem);
+        background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("{% static 'blog1.jpg' %}");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-size: cover;
+        }
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+    .post-preview > a {
+    color: #212529;
+    }
+    .post-preview > a:focus, .post-preview > a:hover {
+    text-decoration: none;
+    color: #0085A1;
+    }
+    .post-preview > a > .post-title {
+    font-size: 1.875rem;
+    margin-top: 1.875rem;
+    margin-bottom: 0.625rem;
+    }
+    .post-preview > a > .post-subtitle {
+    font-weight: 300;
+    margin-bottom: 0.625rem;
+    }
+    .post-preview > .post-meta {
+    font-size: 1.125rem;
+    font-style: italic;
+    margin-top: 0;
+    color: #6c757d;
+    }
+    .post-preview > .post-meta > a {
+    text-decoration: none;
+    }
+    @media (min-width: 992px) {
+    .post-preview > a > .post-title {
+        font-size: 2.25rem;
+    }
+    }
+</style>
+
+<!-- Page Header-->
+<header class="masthead">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1 class="text-white font-weight-bold">Welcome to the Lab!</h1>
+                    <span class="subheading">Here is a collection of free Python, Django, JavaScript tutorials</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content-->
+<div class="container px-4 px-lg-5 pt-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Post preview-->
+            {% for posts in post %}
+            <div class="post-preview">
+                <a href="{% url 'post_detail' posts.slug  %}">
+                    <h2 class="post-title">{{ posts.title }}</h2>
+                    <h3 class="post-subtitle">{{posts.subheading|slice:":100"|safe }}</h3>
+                </a>
+                <p class="post-meta">{{ posts.author }} | {{ posts.created_on}}</p>
+            </div>
+            <!-- Divider-->
+            <hr class="my-4" />
+            {% endfor %}
+        </div>
+        {% block sidebar %} {% include 'blogapp/sidebar.html' %} {% endblock sidebar %}
+    </div>
+</div>
+{%endblock%}
