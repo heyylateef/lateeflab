@@ -1,5 +1,5 @@
 ## LateefLab
-A small Django website to give back to the community! Currently features a blog app where I post my Django tutorials. I also have a few pages dedicated to the gig work I'm interested in doing for clients (use the contact form in you're interested!).
+A small Django website to give back to the community! Currently features a blog app where I post my Django tutorials. I also have a few pages dedicated to the gig work I'm interested in doing for clients (use the contact form if you're interested!).
 
 ## Motivation
 I wanted to give back to the community that helped build a career! This site (lateeflab.com) is made open-source for all to see, inspect, and clone!
