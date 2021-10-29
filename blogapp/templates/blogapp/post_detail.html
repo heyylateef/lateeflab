@@ -87,7 +87,7 @@ pre {
                 <div class="site-heading">
                     <h1 class="text-white font-weight-bold">{% block title %} {{ object.title }} {% endblock title %}</h1>
                     <span class="subheading text-white">{{ object.subheading }}</span>
-                    <span class="subheading">{{ object.author }} | {{ object.created_on }}</span>
+                    <span class="subheading">{{ object.author }} | {{ object.created_on |date:"M d Y" }}</span>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class LateeflabappConfig(AppConfig):
+class ServicesappConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'lateeflabapp'
+    name = 'servicesapp'

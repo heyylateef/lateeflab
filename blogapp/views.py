@@ -7,11 +7,14 @@ import pytz
 
 
 def home(request):
-    if request.session.get('django_timezone') == None: #If the browser's timezone isn't set, ask user to set timezone
-        return render(request, 'blogapp/settimezone.html', {'timezones': pytz.common_timezones})
-    else:
-        queryset = Blogpost.objects.filter(status=Blogpost.PUBLISH)
-        return render(request, 'blogapp/home.html', {'post':queryset})
+    # if request.session.get('django_timezone') == None: #If the browser's timezone isn't set, ask user to set timezone
+    #     return render(request, 'blogapp/settimezone.html', {'timezones': pytz.common_timezones})
+    # else:
+    #     queryset = Blogpost.objects.filter(status=Blogpost.PUBLISH)
+    #     return render(request, 'blogapp/home.html', {'post':queryset})
+    queryset = Blogpost.objects.filter(status=Blogpost.PUBLISH)
+    return render(request, 'blogapp/home.html', {'post':queryset})
+
 
 def settimezone(request):
     if request.method == 'POST':

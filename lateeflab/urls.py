@@ -24,8 +24,8 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('lateeflabapp.urls')),
-    path('blog/', include('blogapp.urls')),
+    path('services/', include('servicesapp.urls')),
+    path('', include('blogapp.urls')),
     path('summernote/', include('django_summernote.urls')), # WYSIWYG editor for admin and blog 
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap') #Sitemap URL; good for SEO
 ]

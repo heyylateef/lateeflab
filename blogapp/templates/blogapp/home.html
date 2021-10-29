@@ -78,7 +78,7 @@
                     <h2 class="post-title">{{ posts.title }}</h2>
                     <h3 class="post-subtitle">{{posts.subheading|slice:":100"|safe }}</h3>
                 </a>
-                <p class="post-meta">{{ posts.author }} | {{ posts.created_on}}</p>
+                <p class="post-meta">{{ posts.author }} | {{ posts.created_on |date:"M d Y"}}</p>
             </div>
             <!-- Divider-->
             <hr class="my-4" />

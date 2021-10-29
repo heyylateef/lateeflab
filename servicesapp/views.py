@@ -17,7 +17,7 @@ import pytz
 
 
 def home(request):
-    return render(request, 'lateeflabapp/home.html', {})
+    return render(request, 'servicesapp/home.html', {})
 
 def privacypolicy(request):
     return render(request, 'privacypolicy.html', {})
@@ -26,13 +26,13 @@ def termsandconditions(request):
     return render(request, 'termsandconditions.html', {})
 
 def pricing(request):
-    return render(request, 'lateeflabapp/pricing.html', {})
+    return render(request, 'servicesapp/pricing.html', {})
 
 def portfolio(request):
-    return render(request, 'lateeflabapp/portfolio.html', {})
+    return render(request, 'servicesapp/portfolio.html', {})
 
 def about(request):
-    return render(request, 'lateeflabapp/about.html', {})
+    return render(request, 'servicesapp/about.html', {})
 
 def services_ecommerce(request):
     if request.method == 'POST':
@@ -43,15 +43,34 @@ def services_ecommerce(request):
             message = form.cleaned_data.get('message')
             email_inquiry(name=name, email=email, message=message, serviceType="E-Commerce")
             messages.success(request, message="Email was sent successfully!")
-            return render(request, 'lateeflabapp/services_ecommerce.html', {'form':form,})
+            return render(request, 'servicesapp/services_ecommerce.html', {'form':form,})
         else:
             messages.error(request, "Error processesing emails, please try again")
-            return render(request, 'lateeflabapp/services_ecommerce.html', {'form':form,})
+            return render(request, 'servicesapp/services_ecommerce.html', {'form':form,})
     else:
         form = ContactForm()
         if 'submitted' in request.GET:
             submitted = True
-    return render(request, 'lateeflabapp/services_ecommerce.html', {'form':form,})
+    return render(request, 'servicesapp/services_ecommerce.html', {'form':form,})
+
+def services_blog(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data.get('email')
+            name = form.cleaned_data.get('name')
+            message = form.cleaned_data.get('message')
+            email_inquiry(name=name, email=email, message=message, serviceType="Blog")
+            messages.success(request, message="Email was sent successfully!")
+            return render(request, 'servicesapp/services_blog.html', {'form':form,})
+        else:
+            messages.error(request, "Error processesing emails, please try again")
+            return render(request, 'servicesapp/services_blog.html', {'form':form,})
+    else:
+        form = ContactForm()
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, 'servicesapp/services_blog.html', {'form':form,})
 
 def contact(request):
     if request.method == 'POST':
@@ -62,15 +81,15 @@ def contact(request):
             message = form.cleaned_data.get('message')
             email_inquiry(name=name, email=email, message=message, serviceType="Inquiry")
             messages.success(request, message="Email was sent successfully!")
-            return render(request, 'lateeflabapp/contact.html', {'form':form,})
+            return render(request, 'servicesapp/contact.html', {'form':form,})
         else:
             messages.error(request, "Error processesing emails, please try again")
-            return render(request, 'lateeflabapp/contact.html', {'form':form,})
+            return render(request, 'servicesapp/contact.html', {'form':form,})
     else:
         form = ContactForm()
         if 'submitted' in request.GET:
             submitted = True
-    return render(request, 'lateeflabapp/contact.html', {'form':form,})
+    return render(request, 'servicesapp/contact.html', {'form':form,})
 
 # def contact_us_form(request):
 #     contactName = request.GET.get('contactName', None) #Gets "contactFirstName" from AJAX function
@@ -96,22 +115,22 @@ def services_api(request):
             message = form.cleaned_data.get('message')
             email_inquiry(name=name, email=email, message=message, serviceType="API")
             messages.success(request, message="Email was sent successfully!")
-            return render(request, 'lateeflabapp/services_api.html', {'form':form,})
+            return render(request, 'servicesapp/services_api.html', {'form':form,})
         else:
             messages.error(request, "Error processesing emails, please try again")
-            return render(request, 'lateeflabapp/services_api.html', {'form':form,})
+            return render(request, 'servicesapp/services_api.html', {'form':form,})
     else:
         form = ContactForm()
         if 'submitted' in request.GET:
             submitted = True
-    return render(request, 'lateeflabapp/services_api.html', {'form':form,})
+    return render(request, 'servicesapp/services_api.html', {'form':form,})
 
 def email_inquiry(name, email, message, serviceType, phone=None, date=None,):
-    msg_plain = render_to_string('lateeflabapp/email_inquiry.txt', {'contactName':name, 'contactEmail':email, 'contactPhone':phone, 'contactDate':date, 'contactMessage':message,})
-    msg_html = render_to_string('lateeflabapp/email_inquiry.html', {'contactName':name, 'contactEmail':email, 'contactPhone':phone, 'contactDate':date, 'contactMessage':message,})
+    msg_plain = render_to_string('servicesapp/email_inquiry.txt', {'contactName':name, 'contactEmail':email, 'contactPhone':phone, 'contactDate':date, 'contactMessage':message,})
+    msg_html = render_to_string('servicesapp/email_inquiry.html', {'contactName':name, 'contactEmail':email, 'contactPhone':phone, 'contactDate':date, 'contactMessage':message,})
     send_mail(subject=serviceType,message=msg_plain,from_email=settings.EMAIL_HOST_USER, recipient_list=[settings.EMAIL_HOST_USER], html_message=msg_html)
 
 def beta(request):
-    return render(request, 'lateeflabapp/contact.html', {})
+    return render(request, 'servicesapp/contact.html', {})
 
 # Create your views here.
