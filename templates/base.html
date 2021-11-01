@@ -177,7 +177,7 @@
     <header>
         {# Navigation Menu #}
         <nav class="navbar navbar-expand-md navbar-light fixed-top ">
-            <a class="navbar-brand" href='{% url "home" %}'>
+            <a class="navbar-brand" href='{% url "bloghome" %}'>
                 <img src="{% static 'LateefLabLogo.png' %}" alt="logo" width="154" height="30">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -187,16 +187,18 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                 <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href='{% url "bloghome" %}'>Blog</a>
+                    </li> 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Services</a>
                         <div class="dropdown-menu">
+                            <a class="dropdown-item" href='{% url "home" %}'>Home</a>
                             <a class="dropdown-item" href='{% url "services_ecommerce" %}'>E-Commerce</a>
                             <a class="dropdown-item" href='{% url "services_api" %}'>API</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href='{% url "bloghome" %}'>Blog</a>
-                    </li>  
+                     
                     <li class="nav-item">
                         <a class="nav-link" href='{% url "about" %}'>About</a>
                     </li>
