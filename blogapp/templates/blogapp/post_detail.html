@@ -106,10 +106,10 @@ pre {
     <span class="subheading font-italic">{{ object.author }} | {{ object.created_on }}</span>
   </div> {% endcomment %}
   <div class="row">
-    <div class="col card mb-4  mt-3 left  top">
+    <div id="mypost" class="col card mb-4  mt-3 left  top">
       <div class="card-body">
         <!--<h1> {{ object.title }} </h1>-->
-        <p >{{ object.content|safe }}</p>
+        <p id="content">{{ object.content|safe }}</p>
         <script src="https://utteranc.es/client.js"
             repo="heyylateef/lateeflab"
             issue-term={{object.title}}

@@ -7,8 +7,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta property="og:site_name" content="Lateef Lab">
-        <meta property="og:title" content="Django and React Templates and Tutorials">
-        <meta property="og:description" content="Need a template to jumpstart your website? Get a robust, responsive template from Lateef Lab now!">
+        <!--<meta property="og:title" content="Django and React Templates and Tutorials"> 
+        <meta property="og:description" content="Need a template to jumpstart your website? Get a robust, responsive template from Lateef Lab now!"> -->
         <meta property="og:image" content="YOURIMAGEURL.JPG">
         <meta property="og:type" content="blog">
         <meta property="og:url" content='{% url "home" %}'>
@@ -173,6 +173,72 @@
 }
 
 
+/* Light Switch */
+  
+  .checkbox {
+    opacity: 0;
+    position: relative;
+  }
+  
+  .label {
+    width: 50px;
+    height: 26px;
+    background-color:#111;
+    display: flex;
+    border-radius:50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    transform: scale(1.5);
+  }
+  
+  .ball {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+  }
+  
+  /*  target the elemenent after the label*/
+  .checkbox:checked + .label .ball{
+    transform: translateX(24px);
+  }
+  
+  .fa-moon {
+    color: pink;
+  }
+  
+  .fa-sun {
+    color: yellow;
+  }
+
+
+/* Dark mode */
+
+.dark{
+    background-color: #222;
+    color: #e6e6e6;
+}
+.dark .post-title{
+    color: #e6e6e6;
+}
+.dark .post-subtitle{
+    color: #e6e6e6;
+}
+.dark .card-body{
+    background-color: #222;
+}
+
+.dark #mypost{
+    background-color: #222;
+}
+
+
         </style>
     <header>
         {# Navigation Menu #}
@@ -180,6 +246,12 @@
             <a class="navbar-brand" href='{% url "bloghome" %}'>
                 <img src="{% static 'LateefLabLogo.png' %}" alt="logo" width="154" height="30">
             </a>
+            <input type="checkbox" class="checkbox" id="checkbox" onclick="ToggleDarkMode()">
+            <label for="checkbox" class="label">
+                <i class="fas fa-moon"></i>
+                <i class='fas fa-sun'></i>
+                <div class='ball'></div>
+            </label>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <!--<span class="navbar-toggler-icon"> -->
                     <i class="fas fa-bars"></i>
@@ -204,8 +276,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href='{% url "contact" %}'>Contact</a>
-                    </li>
-                           
+                    </li>                         
                 </ul>  
             </div>  
         </nav>
@@ -241,7 +312,7 @@
     
 
 
-    <div class="container-fluid p-0" style="background-color:#f1f9ff">
+    <div class="container-fluid p-0">
         {% block content %}
             if you see this, something is wrong
         {% endblock content %}
@@ -274,7 +345,16 @@
 
   <div class="container">
     {% block javascript %}
-        <script>
+    <script>
+        let isDarkMode= window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if(isDarkMode){
+            console.log('Currently in dark mode');
+            ToggleDarkMode();
+        }
+        else{
+            console.log('Currently not in dark mode');
+        }
+
     $(function () {
         $(window).on('scroll', function () {
             if ( $(window).scrollTop() > 100 ) {
@@ -284,6 +364,11 @@
             }
         });
     });
+
+    function ToggleDarkMode() {
+        var element = document.body;
+        element.classList.toggle("dark");
+        }
  
     </script>
     {% endblock %}
