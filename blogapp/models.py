@@ -4,6 +4,7 @@ from django.utils import timezone
 from PIL import Image
 from django.conf import settings
 from django.urls import reverse
+from lateeflab.storage_backends import PublicMediaStorage
 
 class Blogpost(models.Model):
     DRAFT = 'DRAFT'
@@ -17,7 +18,7 @@ class Blogpost(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     subheading = models.CharField(max_length=100, default="")
-    cover_image = models.ImageField(upload_to='uploads/coverimages', default="uploads/blog1.jpg")
+    cover_image = models.ImageField(upload_to='uploads/coverimages', storage=PublicMediaStorage(), default="uploads/blog1.jpg")
     author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
     updated_on = models.DateTimeField(auto_now_add=True)
     content = models.TextField()

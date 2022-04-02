@@ -25,12 +25,6 @@ def privacypolicy(request):
 def termsandconditions(request):
     return render(request, 'termsandconditions.html', {})
 
-def pricing(request):
-    return render(request, 'servicesapp/pricing.html', {})
-
-def portfolio(request):
-    return render(request, 'servicesapp/portfolio.html', {})
-
 def about(request):
     return render(request, 'servicesapp/about.html', {})
 
