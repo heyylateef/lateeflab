@@ -6,6 +6,7 @@ chardet==4.0.0
 dj-database-url==0.5.0
 Django==3.2.5
 django-cart @ git+https://github.com/bmentges/django-cart.git@f2578e7cbe00a64bde3139c6da7c05f820cd281a
+django-cleanup==6.0.0
 django-storages==1.12.3
 django-summernote==0.8.11.6
 gunicorn==20.1.0
