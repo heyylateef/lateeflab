@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sites', # Needed only to use sitemap framework
     'django.contrib.sitemaps', #Sitemap framework; good for SEO
     'storages',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
@@ -157,16 +158,17 @@ if PRODUCTION_ENV == None: #Changes Media Root if we're debugging/development
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
     MEDIA_URL = '/media/'
 else:
-    #MEDIA_ROOT = os.path.join("/var/lib/app/media")
+    MEDIA_ROOT = os.path.join("/var/lib/app/media")
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
     AWS_DEFAULT_ACL = 'public-read'
     AWS_S3_ENDPOINT_URL = 'https://nyc3.digitaloceanspaces.com'
+    AWS_S3_COMPLETE_ENDPOINT_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.nyc3.digitaloceanspaces.com'
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     # public media settings
     PUBLIC_MEDIA_LOCATION = 'media'
-    MEDIA_URL = f'https://{AWS_S3_ENDPOINT_URL}/{PUBLIC_MEDIA_LOCATION}/'
+    MEDIA_URL = f'{AWS_S3_COMPLETE_ENDPOINT_URL}/{PUBLIC_MEDIA_LOCATION}/'
     DEFAULT_FILE_STORAGE = 'lateeflab.storage_backends.PublicMediaStorage'
     # private media settings
     PRIVATE_MEDIA_LOCATION = 'private'
