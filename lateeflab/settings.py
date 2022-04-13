@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sites', # Needed only to use sitemap framework
     'django.contrib.sitemaps', #Sitemap framework; good for SEO
     'storages',
-    'django_cleanup.apps.CleanupConfig',
+    'django_cleanup.apps.CleanupConfig', #Automatically cleans up media files; should be the last installed app
 ]
 
 MIDDLEWARE = [
