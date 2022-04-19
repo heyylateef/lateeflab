@@ -20,7 +20,7 @@ class Blogpost(models.Model):
     subheading = models.CharField(max_length=100, default="")
     cover_image = models.ImageField(upload_to='uploads/coverimages', storage=PublicMediaStorage(), default="uploads/coverimages/blog1.jpg")
     author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
-    updated_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=7, choices=STATUS_CHOICES, default=DRAFT)

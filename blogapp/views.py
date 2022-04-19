@@ -12,7 +12,7 @@ def home(request):
     # else:
     #     queryset = Blogpost.objects.filter(status=Blogpost.PUBLISH)
     #     return render(request, 'blogapp/home.html', {'post':queryset})
-    queryset = Blogpost.objects.filter(status=Blogpost.PUBLISH)
+    queryset = Blogpost.objects.filter(status=Blogpost.PUBLISH).order_by('-created_on')
     return render(request, 'blogapp/home.html', {'post':queryset})
 
 
