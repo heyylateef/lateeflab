@@ -1,18 +1,13 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.contrib import messages
 from .forms import ContactForm
-import os
-from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 from django.core.mail import send_mail
-from django.contrib.auth.decorators import login_required
 from django.utils.timezone import activate
 from django.template.loader import render_to_string
 #from cart.cart import Cart #django-cart, installed using github url with pip
 #import stripe
-import json
-import pytz
 
 
 
@@ -27,6 +22,10 @@ def termsandconditions(request):
 
 def about(request):
     return render(request, 'servicesapp/about.html', {})
+
+def templates(request):
+    #selling templates
+    return
 
 def services_ecommerce(request):
     if request.method == 'POST':
@@ -84,21 +83,6 @@ def contact(request):
         if 'submitted' in request.GET:
             submitted = True
     return render(request, 'servicesapp/contact.html', {'form':form,})
-
-# def contact_us_form(request):
-#     contactName = request.GET.get('contactName', None) #Gets "contactFirstName" from AJAX function
-#     contactEmail = request.GET.get('contactEmail', None) #Gets "contactEmail" from AJAX function
-#     serviceType = request.GET.get('serviceType', None) #Gets "contactType" from AJAX function
-#     contactMessage = request.GET.get('contactMessage', None) #Gets "contactMessage" from AJAX function
-#     data ={
-#         'contactName': contactName,    #contactFirstName from AJAX function as a dictionary
-#         'contactEmail':contactEmail,
-#         'serviceType':serviceType,
-#         'contactMessage':contactMessage,
-#     }
-#     email_inquiry(name=contactName, email=contactEmail, message=contactMessage, serviceType=serviceType)
-
-#     return JsonResponse(data)
 
 def services_api(request):
     if request.method == 'POST':
