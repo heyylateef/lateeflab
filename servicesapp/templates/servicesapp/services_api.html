@@ -211,7 +211,7 @@ section.pricing {
           <h1>Let Us Focus On Building A Fast, Secure Back End For Your Application</h1>
           <h2>REST APIs are essential for modern day web apps and mobile apps. Let Lateef Lab help your team develop the back end for your next big project.</h2>
           <div class="pt-3">
-            <a href="#about" class="btn-primary btn-lg scrollto ">Get Started</a>
+            <a href="#about" class="btn-success btn-lg scrollto ">Get Started</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
@@ -334,33 +334,31 @@ section.pricing {
         </div>
     </section>
 
-        <section class="page-section" id="about">
-        <div class="container pt-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="mt-0">We've got what you need!</h2>
-                    <hr class="divider light my-4" />
-                    <p class="text-50 mb-4">Do you want to start taking payments online for your business? Do you need a reliable back-end solution for a large web project? We can help with that! Contact us today!</p>
-                    <div class="col-lg-8 text-left">
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container pb-5">
-          {% if submitted %}
-            <p class="success">
-              Your request was submitted successfully.
-            </p>
-          {% else %}
-            <form action="" method="post" novalidate>
-                {{form.as_table}}
-                <div class="col pt-3">
-                  <input type="submit"  class="btn btn-success" name="Submit">
-                </div>
-              {% csrf_token %}
-            </form>
-          {% endif %}
-    </section>
+    <section class="page-section" id="about">
+      <div class="container pt-5">
+          <section class="page-section" id="contact">
+              <div class="container pb-5 pt-5">
+                  <div class="row justify-content-center">
+                      <div class="col-lg-8 text-center">
+                          <h2 class="mt-0">Let's Get In Touch!</h2>
+                          <hr class="divider my-4" />
+                          <p class="text-50 mb-4">Do you want to start taking payments online for your business? Do you need a reliable back-end solution for a large web project? We can help with that! Contact us today!</p>
+                      </div>
+                  </div>
+                  <div class="row">
+                      {% comment %} <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                          <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+                          <div>+1 (555) 123-4567</div>
+                      </div> {% endcomment %}
+                      <div class="col mr-auto text-center">
+                          <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+                          <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
+                          <a class="d-block" href="mailto:support@lateeflab.com">support@lateeflab.com</a>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      </div>
+  </section>
 
 {% endblock %}

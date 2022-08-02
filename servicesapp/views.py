@@ -28,80 +28,80 @@ def templates(request):
     return
 
 def services_ecommerce(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data.get('email')
-            name = form.cleaned_data.get('name')
-            message = form.cleaned_data.get('message')
-            email_inquiry(name=name, email=email, message=message, serviceType="E-Commerce")
-            messages.success(request, message="Email was sent successfully!")
-            return render(request, 'servicesapp/services_ecommerce.html', {'form':form,})
-        else:
-            messages.error(request, "Error processesing emails, please try again")
-            return render(request, 'servicesapp/services_ecommerce.html', {'form':form,})
-    else:
-        form = ContactForm()
-        if 'submitted' in request.GET:
-            submitted = True
-    return render(request, 'servicesapp/services_ecommerce.html', {'form':form,})
+    # if request.method == 'POST':
+    #     form = ContactForm(request.POST)
+    #     if form.is_valid():
+    #         email = form.cleaned_data.get('email')
+    #         name = form.cleaned_data.get('name')
+    #         message = form.cleaned_data.get('message')
+    #         email_inquiry(name=name, email=email, message=message, serviceType="E-Commerce")
+    #         messages.success(request, message="Email was sent successfully!")
+    #         return render(request, 'servicesapp/services_ecommerce.html', {'form':form,})
+    #     else:
+    #         messages.error(request, "Error processesing emails, please try again")
+    #         return render(request, 'servicesapp/services_ecommerce.html', {'form':form,})
+    # else:
+    #     form = ContactForm()
+    #     if 'submitted' in request.GET:
+    #         submitted = True
+    return render(request, 'servicesapp/services_ecommerce.html', {})
 
 def services_blog(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data.get('email')
-            name = form.cleaned_data.get('name')
-            message = form.cleaned_data.get('message')
-            email_inquiry(name=name, email=email, message=message, serviceType="Blog")
-            messages.success(request, message="Email was sent successfully!")
-            return render(request, 'servicesapp/services_blog.html', {'form':form,})
-        else:
-            messages.error(request, "Error processesing emails, please try again")
-            return render(request, 'servicesapp/services_blog.html', {'form':form,})
-    else:
-        form = ContactForm()
-        if 'submitted' in request.GET:
-            submitted = True
-    return render(request, 'servicesapp/services_blog.html', {'form':form,})
+    # if request.method == 'POST':
+    #     form = ContactForm(request.POST)
+    #     if form.is_valid():
+    #         email = form.cleaned_data.get('email')
+    #         name = form.cleaned_data.get('name')
+    #         message = form.cleaned_data.get('message')
+    #         email_inquiry(name=name, email=email, message=message, serviceType="Blog")
+    #         messages.success(request, message="Email was sent successfully!")
+    #         return render(request, 'servicesapp/services_blog.html', {'form':form,})
+    #     else:
+    #         messages.error(request, "Error processesing emails, please try again")
+    #         return render(request, 'servicesapp/services_blog.html', {'form':form,})
+    # else:
+    #     form = ContactForm()
+    #     if 'submitted' in request.GET:
+    #         submitted = True
+    return render(request, 'servicesapp/services_blog.html', {})
 
 def contact(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data.get('email')
-            name = form.cleaned_data.get('name')
-            message = form.cleaned_data.get('message')
-            email_inquiry(name=name, email=email, message=message, serviceType="Inquiry")
-            messages.success(request, message="Email was sent successfully!")
-            return render(request, 'servicesapp/contact.html', {'form':form,})
-        else:
-            messages.error(request, "Error processesing emails, please try again")
-            return render(request, 'servicesapp/contact.html', {'form':form,})
-    else:
-        form = ContactForm()
-        if 'submitted' in request.GET:
-            submitted = True
-    return render(request, 'servicesapp/contact.html', {'form':form,})
+    # if request.method == 'POST':
+    #     form = ContactForm(request.POST)
+    #     if form.is_valid():
+    #         email = form.cleaned_data.get('email')
+    #         name = form.cleaned_data.get('name')
+    #         message = form.cleaned_data.get('message')
+    #         email_inquiry(name=name, email=email, message=message, serviceType="Inquiry")
+    #         messages.success(request, message="Email was sent successfully!")
+    #         return render(request, 'servicesapp/contact.html', {'form':form,})
+    #     else:
+    #         messages.error(request, "Error processesing emails, please try again")
+    #         return render(request, 'servicesapp/contact.html', {'form':form,})
+    # else:
+    #     form = ContactForm()
+    #     if 'submitted' in request.GET:
+    #         submitted = True
+    return render(request, 'servicesapp/contact.html', {})
 
 def services_api(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data.get('email')
-            name = form.cleaned_data.get('name')
-            message = form.cleaned_data.get('message')
-            email_inquiry(name=name, email=email, message=message, serviceType="API")
-            messages.success(request, message="Email was sent successfully!")
-            return render(request, 'servicesapp/services_api.html', {'form':form,})
-        else:
-            messages.error(request, "Error processesing emails, please try again")
-            return render(request, 'servicesapp/services_api.html', {'form':form,})
-    else:
-        form = ContactForm()
-        if 'submitted' in request.GET:
-            submitted = True
-    return render(request, 'servicesapp/services_api.html', {'form':form,})
+    # if request.method == 'POST':
+    #     form = ContactForm(request.POST)
+    #     if form.is_valid():
+    #         email = form.cleaned_data.get('email')
+    #         name = form.cleaned_data.get('name')
+    #         message = form.cleaned_data.get('message')
+    #         email_inquiry(name=name, email=email, message=message, serviceType="API")
+    #         messages.success(request, message="Email was sent successfully!")
+    #         return render(request, 'servicesapp/services_api.html', {'form':form,})
+    #     else:
+    #         messages.error(request, "Error processesing emails, please try again")
+    #         return render(request, 'servicesapp/services_api.html', {'form':form,})
+    # else:
+    #     form = ContactForm()
+    #     if 'submitted' in request.GET:
+    #         submitted = True
+    return render(request, 'servicesapp/services_api.html', {})
 
 def email_inquiry(name, email, message, serviceType, phone=None, date=None,):
     msg_plain = render_to_string('servicesapp/email_inquiry.txt', {'contactName':name, 'contactEmail':email, 'contactPhone':phone, 'contactDate':date, 'contactMessage':message,})
