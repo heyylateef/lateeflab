@@ -70,9 +70,9 @@
         <!-- Blog Entries Column -->
         <div class="col-md-10 col-lg-8 col-xl-7">
             <!-- Post preview-->
-            {% for posts in post %}
+            {% for posts in page_obj %}
             <div class="post-preview">
-                <a href="{% url 'post_detail' posts.slug  %}">
+                <a class="text-decoration-none" href="{% url 'post_detail' posts.slug  %}">
                     <h2 class="post-title">{{ posts.title }}</h2>
                     <h3 class="post-subtitle">{{posts.subheading|slice:":100"|safe }}</h3>
                 </a>
@@ -84,5 +84,23 @@
         </div>
         {% block sidebar %} {% include 'blogapp/sidebar.html' %} {% endblock sidebar %}
     </div>
+
+    <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li class="page-item"><a  class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a></li>
+            {% endif %}
+            
+                {% for i in page_range %}
+                    {% if i == page_obj.number %}
+                    <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% else %}
+                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+    
+            {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a></li>
+            {% endif %}
+    </ul>
 </div>
 {%endblock%}

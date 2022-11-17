@@ -4,6 +4,7 @@ from .models import Blogpost
 from .forms import CreatePostForm
 from django.contrib import messages
 import pytz
+from django.core.paginator import Paginator
 
 
 def home(request):
@@ -13,7 +14,11 @@ def home(request):
     #     queryset = Blogpost.objects.filter(status=Blogpost.PUBLISH)
     #     return render(request, 'blogapp/home.html', {'post':queryset})
     queryset = Blogpost.objects.filter(status=Blogpost.PUBLISH).order_by('-created_on')
-    return render(request, 'blogapp/home.html', {'post':queryset})
+    paginator = Paginator(queryset, 6) # Show 6 posts per page.
+    page_number = request.GET.get('page')
+    page_range = paginator.page_range
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'blogapp/home.html', {'post':queryset, 'page_obj':page_obj, 'page_range':page_range})
 
 
 def settimezone(request):
