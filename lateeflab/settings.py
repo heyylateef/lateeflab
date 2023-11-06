@@ -179,6 +179,8 @@ else:
     # private media settings
     PRIVATE_MEDIA_LOCATION = 'private'
     PRIVATE_FILE_STORAGE = 'lateeflab.storage_backends.PrivateMediaStorage'
+    CSRF_TRUSTED_ORIGINS = ['https://lateeflab.com', 'https://www.lateeflab.com'] #Required as of Django 4.0
+
 
 
 # HTTPS Settings
