@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps', #Sitemap framework; good for SEO
     'storages',
     'django_cleanup.apps.CleanupConfig', #Automatically cleans up media files; should be the last installed app
+    'django_otp',
+    'django_otp.plugins.otp_totp',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +60,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_otp.middleware.OTPMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'blogapp.middleware.TimezoneMiddleware', #custom middleware, for timezone support
