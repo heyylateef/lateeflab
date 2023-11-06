@@ -8,7 +8,7 @@ I wanted to give back to the community that helped build a career! This site (la
 
 <b>Built with</b>
 - [Python 3.8.10](https://www.python.org/)
-- [Django 3.2.5](https://www.djangoproject.com/)
+- [Django 4.2.7](https://www.djangoproject.com/)
 
 ## Features
 This website includes my blog (lateeflab.com/blog) where I post tutorials for Django web developers. I'm also open to gig work, so I also show visitors some of the gig work I have experience in.
