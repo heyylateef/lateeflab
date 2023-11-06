@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps', #Sitemap framework; good for SEO
     'storages',
     'django_cleanup.apps.CleanupConfig', #Automatically cleans up media files; should be the last installed app
+
     'django_otp', #TOTP support
     'django_otp.plugins.otp_totp', #TOTP support
 ]
