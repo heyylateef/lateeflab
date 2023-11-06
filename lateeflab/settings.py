@@ -37,7 +37,8 @@ ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split("
 INSTALLED_APPS = [
     'servicesapp.apps.ServicesappConfig',
     'blogapp.apps.BlogappConfig',
-    'django.contrib.admin',
+    #'django.contrib.admin',
+    "lateeflab.apps.MyAdminConfig", #replaces django.contrib.admin
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -49,6 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps', #Sitemap framework; good for SEO
     'storages',
     'django_cleanup.apps.CleanupConfig', #Automatically cleans up media files; should be the last installed app
+    'django_otp', #TOTP support
+    'django_otp.plugins.otp_totp', #TOTP support
 ]
 
 MIDDLEWARE = [
@@ -58,6 +61,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_otp.middleware.OTPMiddleware', #TOTP
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'blogapp.middleware.TimezoneMiddleware', #custom middleware, for timezone support
@@ -187,6 +191,8 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1 #Required for "sites framework" (Only need it to enable sitemap framework); Specifies databaseID for this site in case I use a single Django project to launch 2 websites
+
+SUMMERNOTE_THEME = 'bs4'  # Show summernote with Bootstrap4
 
 #Email settings, preconfigured for Gmail
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

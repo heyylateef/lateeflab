@@ -25,7 +25,7 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), 
     path('services/', include('servicesapp.urls')),
     path('', include('blogapp.urls')),
     path('summernote/', include('django_summernote.urls')), # WYSIWYG editor for admin and blog 

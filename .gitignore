@@ -7,3 +7,4 @@ entrypoint.sh
 traefik.prod.toml
 db.sqlite3
 .vscode
+.pyc
