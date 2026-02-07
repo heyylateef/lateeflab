@@ -93,7 +93,10 @@ target/
 *.pot
 *.pyc
 __pycache__/
+*__pycache__/*
 local_settings.py
+staticfiles/
 
 .env
 db.sqlite3
+.venv/
